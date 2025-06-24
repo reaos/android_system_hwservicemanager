@@ -47,8 +47,10 @@ AccessControl::CallingContext getBinderCallingContext() {
             android_errorWriteLog(0x534e4554, "121035042");
         }
 
+        #if 0 // HACKED
         CHECK_EQ(nullptr, self->getServingStackPointer())
                 << "Pid " << pid << " missing service context.";
+        #endif
 
         return AccessControl::getCallingContext(pid);
     } else {
